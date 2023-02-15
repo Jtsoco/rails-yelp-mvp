@@ -7,4 +7,16 @@
 </div>
 <div class="container mt-3">
   <%= link_to "Add a review!", new_restaurant_review_path(@restaurant) %>
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <% if @reviews.first %>
+      <% @reviews.each do |review| %>
+      <div class = "w-50">
+        <p><%= review.content %></p>
+        <h3><%= review.rating %>/5</h3>
+      </div>
+      <% end %>
+    <% else %>
+       <h3>No review yet!</h3>
+    <% end %>
+  </div>
 </div>
